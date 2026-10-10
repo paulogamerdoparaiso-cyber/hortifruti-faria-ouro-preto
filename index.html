@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hortifruti Faria - Frutas, Verduras & Legumes Selecionados | Amarantina MG</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts (Syne & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#16A34A', // Verde Hortifruti Fresco
+              dark: '#052E16',
+              darker: '#021208',
+              card: '#0A3A1B',
+              accent: '#22C55E',
+              lime: '#84CC16',
+              amber: '#F59E0B',
+              gold: '#FACC15',
+              emerald: '#10B981'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Syne', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #021208;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #22C55E;
+      border-radius: 4px;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #22C55E 0%, #84CC16 50%, #FACC15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-nav {
+      background: rgba(2, 18, 8, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    }
+    .glass-card {
+      background: rgba(10, 58, 27, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+    }
+    .glass-card:hover {
+      border-color: rgba(34, 197, 94, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.25);
+    }
+    .hero-glow {
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.18) 0%, rgba(22, 163, 74, 0.08) 50%, rgba(0, 0, 0, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-brand-darker text-slate-100 font-sans min-h-screen flex flex-col pb-12 antialiased selection:bg-brand-accent selection:text-brand-darker">
+
+  <!-- Top Banner Info Bar -->
+  <div class="bg-gradient-to-r from-brand-dark via-brand-card to-brand-dark text-slate-200 text-[11px] sm:text-xs py-2 px-4 border-b border-emerald-900/30">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-brand-lime font-semibold">
+          <i class="fa-solid fa-location-dot text-brand-accent"></i> Rua Bela Vista, 180 - Amarantina, Ouro Preto/MG
+        </span>
+        <span class="hidden sm:inline text-emerald-950">|</span>
+        <span class="hidden sm:flex items-center gap-1 text-slate-300">
+          <i class="fa-solid fa-seedling text-brand-lime"></i> Frutas, Verduras e Legumes Fresquinhos Todos os Dias
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="bg-emerald-950/80 px-2.5 py-0.5 rounded-full text-[10px] uppercase font-extrabold text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+          <i class="fa-solid fa-circle-check"></i> CNPJ Verificado • Amarantina
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="glass-nav sticky top-0 z-40 transition-all">
+    <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 bg-gradient-to-tr from-brand-accent via-emerald-600 to-brand-lime rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-950/60 transform group-hover:rotate-6 transition duration-300">
+          <i class="fa-solid fa-carrot text-brand-darker text-2xl font-black"></i>
+        </div>
+        <div>
+          <span class="font-display text-2xl sm:text-3xl font-black tracking-tight text-white uppercase block leading-none">
+            HORTIFRUTI <span class="text-gradient">FARIA</span>
+          </span>
+          <span class="text-[10px] uppercase tracking-widest text-emerald-400/80 font-bold block mt-0.5">
+            Amarantina • Ouro Preto / MG
+          </span>
+        </div>
+      </a>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-3">
+        <button onclick="openCNPJModal()" class="hidden md:inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-emerald-500/20 text-emerald-200 text-xs font-bold px-3.5 py-2.5 rounded-xl transition">
+          <i class="fa-solid fa-shield-check text-brand-lime"></i> Dados Cadastrais
+        </button>
+
+        <button onclick="toggleCartModal()" class="relative bg-gradient-to-r from-brand-accent via-emerald-500 to-brand-lime hover:opacity-95 text-brand-darker font-black text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-950/80 uppercase tracking-wider">
+          <i class="fa-solid fa-basket-shopping text-brand-darker text-sm"></i>
+          <span class="hidden sm:inline">Minha Cesta</span>
+          <span id="header-cart-count" class="bg-brand-darker text-brand-lime font-black text-[11px] px-2 py-0.2 rounded-full">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative py-14 px-4 overflow-hidden border-b border-emerald-950/40">
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+      
+      <div class="space-y-5 text-center lg:text-left">
+        <span class="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-sm">
+          <i class="fa-solid fa-leaf text-brand-accent"></i> Qualidade Selecionada em Amarantina
+        </span>
+        <h1 class="font-display text-3xl sm:text-5xl font-black text-white leading-tight uppercase tracking-tight">
+          Alimentação Saudável & <span class="text-gradient">Produtos Selecionados</span>
+        </h1>
+        <p class="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
+          O Hortifruti Faria leva para a sua mesa o melhor em hortifrutigranjeiros. Frutas docinhas, verduras da horta, legumes frescos e ovos caipiras selecionados no distrito de Amarantina.
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
+          <a href="#produtos" class="bg-gradient-to-r from-brand-accent to-brand-lime text-brand-darker font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl shadow-xl hover:scale-105 transition transform flex items-center gap-2 uppercase tracking-wider">
+            <i class="fa-solid fa-basket-shopping"></i> Montar Minha Cesta
+          </a>
+          <button onclick="openCNPJModal()" class="bg-white/5 hover:bg-white/10 text-slate-200 text-xs sm:text-sm font-bold px-5 py-3.5 rounded-2xl border border-white/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-brand-accent"></i> Cartão CNPJ
+          </button>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center">
+        <div class="w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-tr from-brand-accent via-emerald-600 to-brand-lime rounded-full blur-3xl opacity-20 absolute"></div>
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80" alt="Hortifruti Faria Amarantina" class="w-72 h-72 sm:w-96 sm:h-96 object-cover rounded-3xl shadow-2xl border-2 border-emerald-500/20 transform -rotate-2 hover:rotate-0 transition duration-500 relative z-10">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT FEATURES -->
+  <section class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-brand-accent flex items-center justify-center text-xl shrink-0">
+        <i class="fa-solid fa-apple-whole"></i>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-sm text-white">Frutas Doces & Maduras</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Sempre bem selecionadas para a sua família.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-brand-lime flex items-center justify-center text-xl shrink-0">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-sm text-white">Verduras da Horta</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Alfaces, couves e temperos higienizados.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-brand-gold flex items-center justify-center text-xl shrink-0">
+        <i class="fa-solid fa-truck-fast"></i>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-sm text-white">Atendimento em Amarantina</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Rua Bela Vista, 180 - Praticidade e rapidez.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN PRODUCT CATALOG -->
+  <main id="produtos" class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full space-y-12">
+    
+    <!-- FRUTAS FRESCA -->
+    <section class="space-y-5">
+      <div class="flex items-center justify-between border-b border-emerald-950/60 pb-3">
+        <div>
+          <span class="text-brand-lime font-extrabold text-xs uppercase tracking-widest">Direto do Pomar</span>
+          <h3 class="text-2xl font-display font-black text-white">Frutas Selecionadas</h3>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-4 rounded-2xl flex flex-col justify-between transition">
+          <div>
+            <div class="h-44 bg-cover bg-center rounded-xl relative mb-3" style="background-image: url('https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=500&q=80');">
+              <span class="absolute top-2 right-2 bg-brand-lime text-brand-darker text-[10px] font-black px-2.5 py-0.5 rounded-full">Dúzia</span>
+            </div>
+            <h4 class="font-display font-bold text-base text-white">Banana Prata Doce (Dúzia)</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Bananas frescas, firmes e saborosas da região.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+            <span class="text-lg font-black text-brand-lime">R$ 8,50</span>
+            <button onclick="addToCart('Banana Prata (Dúzia)', 8.50)" class="bg-brand-accent hover:bg-emerald-600 text-brand-darker text-xs font-black px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 uppercase">
+              <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card p-4 rounded-2xl flex flex-col justify-between transition">
+          <div>
+            <div class="h-44 bg-cover bg-center rounded-xl relative mb-3" style="background-image: url('https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80');">
+              <span class="absolute top-2 right-2 bg-brand-lime text-brand-darker text-[10px] font-black px-2.5 py-0.5 rounded-full">Kg</span>
+            </div>
+            <h4 class="font-display font-bold text-base text-white">Maçã Gala / Fuji Selecionada (1kg)</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Crocantes, suculentas e ideais para o lanche diário.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+            <span class="text-lg font-black text-brand-lime">R$ 11,90</span>
+            <button onclick="addToCart('Maçã Gala (1kg)', 11.90)" class="bg-brand-accent hover:bg-emerald-600 text-brand-darker text-xs font-black px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 uppercase">
+              <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card p-4 rounded-2xl flex flex-col justify-between transition">
+          <div>
+            <div class="h-44 bg-cover bg-center rounded-xl relative mb-3" style="background-image: url('https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=500&q=80');">
+              <span class="absolute top-2 right-2 bg-brand-lime text-brand-darker text-[10px] font-black px-2.5 py-0.5 rounded-full">Saco 2kg</span>
+            </div>
+            <h4 class="font-display font-bold text-base text-white">Laranja Pera Doce para Suco (Saco 2kg)</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Muito caldo e doçura para seus sucos de manhã.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+            <span class="text-lg font-black text-brand-lime">R$ 12,00</span>
+            <button onclick="addToCart('Laranja Pera Suco (2kg)', 12.00)" class="bg-brand-accent hover:bg-emerald-600 text-brand-darker text-xs font-black px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 uppercase">
+              <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VERDURAS & LEGUMES -->
+    <section class="space-y-5">
+      <div class="flex items-center justify-between border-b border-emerald-950/60 pb-3">
+        <div>
+          <span class="text-brand-accent font-extrabold text-xs uppercase tracking-widest">Da Horta para Você</span>
+          <h3 class="text-2xl font-display font-black text-white">Verduras, Legumes & Ovos</h3>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div class="glass-card p-4.5 rounded-2xl flex items-center justify-between">
+          <div>
+            <h5 class="font-bold text-sm text-white">Tomate Italiano Selecionado (1kg)</h5>
+            <p class="text-xs text-slate-400 mt-0.5">Vermelhinhos e firmes para saladas e molhos.</p>
+            <span class="text-base font-black text-brand-lime mt-1 block">R$ 7,90</span>
+          </div>
+          <button onclick="addToCart('Tomate Italiano (1kg)', 7.90)" class="bg-brand-accent hover:bg-emerald-600 text-brand-darker text-xs font-black px-3.5 py-2.5 rounded-xl transition shrink-0 ml-3 uppercase">
+            + Adicionar
+          </button>
+        </div>
+
+        <div class="glass-card p-4.5 rounded-2xl flex items-center justify-between">
+          <div>
+            <h5 class="font-bold text-sm text-white">Cartela de Ovos Caipiras Selecionados (12 un)</h5>
+            <p class="text-xs text-slate-400 mt-0.5">Ovos frescos de produtores da região.</p>
+            <span class="text-base font-black text-brand-lime mt-1 block">R$ 14,00</span>
+          </div>
+          <button onclick="addToCart('Cartela de Ovos Caipiras (12un)', 14.00)" class="bg-brand-accent hover:bg-emerald-600 text-brand-darker text-xs font-black px-3.5 py-2.5 rounded-xl transition shrink-0 ml-3 uppercase">
+            + Adicionar
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ OFICIAL & COMPLETO DA EMPRESA -->
+  <footer class="bg-brand-dark border-t border-emerald-900/40 text-slate-300 pt-12 pb-8 px-4 mt-16 relative">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 pb-8 border-b border-white/10">
+      
+      <!-- Coluna 1: Sobre a Empresa -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 bg-brand-accent text-brand-darker rounded-xl flex items-center justify-center font-black">
+            <i class="fa-solid fa-carrot"></i>
+          </div>
+          <h4 class="font-display font-black text-white text-lg tracking-tight">HORTIFRUTI FARIA</h4>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          HORTIFRUTI FARIA LTDA. Tradição em produtos hortifrutigranjeiros no distrito de Amarantina em Ouro Preto / MG.
+        </p>
+        <div class="pt-1">
+          <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
+            <i class="fa-solid fa-circle-check"></i> Empresa Ativa na Receita Federal
+          </span>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Dados Oficiais CNPJ -->
+      <div class="space-y-2.5">
+        <h5 class="font-display font-extrabold text-white text-sm uppercase tracking-wider text-brand-lime">Informações Fiscais</h5>
+        <ul class="space-y-1.5 text-xs text-slate-400">
+          <li><strong class="text-slate-200">Razão Social:</strong> HORTIFRUTI FARIA LTDA</li>
+          <li><strong class="text-slate-200">CNPJ:</strong> 48.315.564/0001-40</li>
+          <li><strong class="text-slate-200">Data de Abertura:</strong> 17/10/2022 (quase 4 anos)</li>
+          <li><strong class="text-slate-200">CNAE Principal:</strong> 4724-5/00 - Comércio varejista de hortifrutigranjeiros</li>
+          <li><strong class="text-slate-200">Situação Cadastral:</strong> ATIVA</li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Localização & Atendimento -->
+      <div class="space-y-2.5">
+        <h5 class="font-display font-extrabold text-white text-sm uppercase tracking-wider text-brand-lime">Endereço & Sede</h5>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          <i class="fa-solid fa-location-dot text-brand-accent mr-1"></i>
+          Rua Bela Vista, 180<br>
+          Amarantina, Ouro Preto - MG<br>
+          CEP: 35412-000
+        </p>
+        <div class="pt-1 text-xs text-slate-400">
+          <p><strong class="text-slate-200">Atendimento:</strong> Segunda a Sábado</p>
+          <p><strong class="text-slate-200">Distrito:</strong> Amarantina (Ouro Preto/MG)</p>
+        </div>
+      </div>
+
+      <!-- Coluna 4: Contato & Botões Oficiais -->
+      <div class="space-y-3">
+        <h5 class="font-display font-extrabold text-white text-sm uppercase tracking-wider text-brand-lime">Fale Conosco</h5>
+        <p class="text-xs text-slate-400">Monte sua cesta e envie seu pedido via WhatsApp:</p>
+        <button onclick="toggleCartModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
+          <i class="fa-brands fa-whatsapp text-base"></i> Pedir pelo WhatsApp
+        </button>
+        <button onclick="openCNPJModal()" class="w-full bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs py-2.5 px-4 rounded-xl transition border border-white/10 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-file-contract text-brand-lime"></i> Cartão CNPJ Receita Federal
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Sub-rodapé com Direitos Autorais -->
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      <p>© 2026 HORTIFRUTI FARIA LTDA. Todos os direitos reservados.</p>
+      <p class="flex items-center gap-1">
+        <span>Amarantina • Ouro Preto - MG</span> • <span class="text-slate-400">CNPJ 48.315.564/0001-40</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- CART MODAL -->
+  <div id="cart-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-dark border border-emerald-900/60 rounded-3xl max-w-md w-full p-6 shadow-2xl relative flex flex-col max-h-[90vh]">
+      <div class="flex justify-between items-center border-b border-emerald-900/50 pb-3 mb-4">
+        <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+          <i class="fa-solid fa-basket-shopping text-brand-lime"></i> Sua Cesta de Compras
+        </h3>
+        <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white font-bold p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="space-y-3 overflow-y-auto flex-grow pr-1 divide-y divide-emerald-900/40">
+      </div>
+
+      <div class="border-t border-emerald-900/50 pt-4 mt-4">
+        <div class="flex justify-between items-center text-sm font-bold mb-4">
+          <span class="text-slate-300">Total do Pedido:</span>
+          <span id="cart-total-price" class="text-brand-lime text-xl font-black">R$ 0,00</span>
+        </div>
+
+        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider">
+          <i class="fa-brands fa-whatsapp text-base"></i> Enviar Pedido via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CNPJ MODAL -->
+  <div id="cnpj-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-dark border border-emerald-900/60 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center border-b border-emerald-900/50 pb-3 mb-4">
+        <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+          <i class="fa-solid fa-shield-check text-emerald-400"></i> Cartão CNPJ - Receita Federal
+        </h3>
+        <button onclick="openCNPJModal()" class="text-slate-400 hover:text-white font-bold p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+          <span class="block text-[10px] uppercase font-bold text-emerald-400">Razão Social</span>
+          <strong class="text-sm text-white font-display">HORTIFRUTI FARIA LTDA</strong>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+            <span class="block text-[10px] uppercase text-emerald-400">CNPJ Ativo</span>
+            <strong class="font-mono text-brand-lime">48.315.564/0001-40</strong>
+          </div>
+          <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+            <span class="block text-[10px] uppercase text-emerald-400">Abertura</span>
+            <strong class="text-white">17/10/2022</strong>
+          </div>
+        </div>
+        <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+          <span class="block text-[10px] uppercase text-emerald-400">CNAE Principal</span>
+          <strong class="text-white">4724-5/00 - Comércio varejista de hortifrutigranjeiros</strong>
+        </div>
+        <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+          <span class="block text-[10px] uppercase text-emerald-400">Endereço Registrado</span>
+          <p class="font-medium text-white mt-0.5">Rua Bela Vista, 180 - Amarantina, Ouro Preto - MG, CEP 35412-000</p>
+        </div>
+      </div>
+      <div class="mt-5 text-right">
+        <button onclick="openCNPJModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`${name} adicionado à cesta!`);
+    }
+
+    function updateCartUI() {
+      const countEl = document.getElementById('header-cart-count');
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total-price');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      countEl.textContent = totalCount;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-400 text-center py-6">Sua cesta está vazia.</p>';
+        totalEl.textContent = 'R$ 0,00';
+        return;
+      }
+
+      let html = '';
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.qty;
+        totalPrice += subtotal;
+
+        html += `
+          <div class="py-3 flex justify-between items-center">
+            <div class="pr-2">
+              <h5 class="text-xs font-bold text-white">${item.name}</h5>
+              <span class="text-[11px] text-emerald-400">R$ ${item.price.toFixed(2).replace('.', ',')} un</span>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <div class="flex items-center border border-emerald-900 rounded-lg overflow-hidden text-xs">
+                <button onclick="changeQty(${index}, -1)" class="px-2 py-1 bg-white/5 text-white font-bold">-</button>
+                <span class="px-2.5 py-1 font-bold text-white">${item.qty}</span>
+                <button onclick="changeQty(${index}, 1)" class="px-2 py-1 bg-white/5 text-white font-bold">+</button>
+              </div>
+              <span class="text-xs font-black text-brand-lime w-16 text-right">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      totalEl.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function toggleCartModal() {
+      document.getElementById('cart-modal').classList.toggle('hidden');
+    }
+
+    function openCNPJModal() {
+      document.getElementById('cnpj-modal').classList.toggle('hidden');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) return alert('Sua cesta está vazia!');
+
+      let message = 'Olá! Gostaria de fazer o seguinte pedido no Hortifruti Faria (Amarantina/OP):\n\n';
+      let total = 0;
+
+      cart.forEach(item => {
+        const sub = item.price * item.qty;
+        total += sub;
+        message += `▪️ ${item.qty}x ${item.name} - R$ ${sub.toFixed(2).replace('.', ',')}\n`;
+      });
+
+      message += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*\n\nEndereço de Entrega / Retirada em Amarantina: `;
+      window.open(`https://wa.me/5531999999999?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function showToast(text) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 right-5 bg-brand-accent text-brand-darker text-xs font-bold px-4 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-2 border border-brand-lime';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-brand-darker"></i> ${text}`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+  </script>
+</body>
+</html>
